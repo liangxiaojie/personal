@@ -7,3 +7,12 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf/:/etc/nginx/conf/
     network_mode: "host"
+
+  blog:
+    image: jekyll/jekyll
+    restart: always
+    volumes:
+      - ../liangxiaojie.github.io/:/srv/jekyll/
+    command: bundle exec jekyll serve
+    ports:
+      - 4000:4000
