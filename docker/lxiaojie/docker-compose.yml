@@ -16,7 +16,7 @@ services:
     image: jekyll/jekyll
     restart: always
     volumes:
-      - ../liangxiaojie.github.io/:/srv/jekyll/
+      - ~/liangxiaojie.github.io/:/srv/jekyll/
     command: bundle exec jekyll serve
     expose:
       - 4000
