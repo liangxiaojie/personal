@@ -11,6 +11,7 @@ services:
       - "443:443"
     links:
       - blog
+      - sinopia
 
   blog:
     build: ./jekyll
@@ -19,3 +20,13 @@ services:
       - ~/liangxiaojie.github.io/:/srv/jekyll/
     expose:
       - 4000
+
+  sinopia:
+    image: keyvanfatehi/sinopia
+    restart: always
+    volumes:
+      - ./npm-registry/sinopia/config.yaml:/opt/sinopia/config.yaml
+      - ./npm-registry/sinopia/htpasswd:/opt/sinopia/htpasswd
+      - ./npm-registry/sinopia/storage/:/opt/sinopia/storage/
+    expose:
+      - 4873
