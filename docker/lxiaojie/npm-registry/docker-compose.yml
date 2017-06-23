@@ -1,0 +1,9 @@
+sinopia:
+  image: keyvanfatehi/sinopia
+  restart: always
+  volumes:
+    - ./sinopia/config.yaml:/opt/sinopia/config.yaml
+    - ./sinopia/htpasswd:/opt/sinopia/htpasswd
+    - ./sinopia/storage/:/opt/sinopia/storage/
+  ports:
+    - "4873:4873"
