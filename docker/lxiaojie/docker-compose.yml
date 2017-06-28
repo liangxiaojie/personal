@@ -14,10 +14,10 @@ services:
       - sinopia
 
   blog:
-    build: ./jekyll
+    build: ./hexo
     restart: always
     volumes:
-      - ~/liangxiaojie.github.io/:/srv/jekyll/
+      - ~/blog/:/app/
     expose:
       - 4000
 
