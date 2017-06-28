@@ -1,5 +1,7 @@
 FROM node:6.9.5
 
+RUN npm config set registry https://registry.npm.taobao.org
+
 RUN npm install hexo-cli -g
 
 WORKDIR /app
