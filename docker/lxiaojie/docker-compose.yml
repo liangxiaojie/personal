@@ -34,7 +34,7 @@ services:
       - 4873
 
   hhfanyi_mobile:
-    image: node
+    image: node:8.10.0
     restart: always
     volumes:
       - ~/hhfanyi/nicemall-mobile/:/app/
@@ -43,7 +43,7 @@ services:
       - 3000
 
   hhfanyi_api:
-    image: node
+    image: node:8.10.0
     restart: always
     volumes:
       - ~/hhfanyi/nicemall-api/:/app/
