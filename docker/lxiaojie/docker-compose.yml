@@ -49,7 +49,7 @@ services:
     working_dir: /app/
     environment:
       API_SERVICE_URL: 'http://hhfanyi_api:7001'
-    command: npm run build & npm run start
+    command: "npm run build && npm run start"
     expose:
       - 3000
 
