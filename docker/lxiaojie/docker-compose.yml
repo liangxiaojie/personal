@@ -48,7 +48,7 @@ services:
       - ~/hhfanyi/nicemall-mobile/:/app/
     working_dir: /app/
     environment:
-      API_SERVICE_URL: 'http://hhfanyi-api.lxiaojie.com'
+      API_URL: 'http://hhfanyi-api.lxiaojie.com'
     command: "npm run build-start"
     expose:
       - 3000
