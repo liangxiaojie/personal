@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf/:/etc/nginx/conf/
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - hhfanyi_mobile
+      - hhfanyi_api
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - ~/data/:/data/db/
+    expose:
+      - 27017
+
+  hhfanyi_mobile:
+    image: node:8.10.0
+    restart: always
+    volumes:
+      - ~/hhfanyi/nicemall-mobile/:/app/
+    working_dir: /app/
+    environment:
+      API_SERVICE_URL: 'http://api.hhfanyi.com'
+    command: "npm run build-start"
+    expose:
+      - 3000
+
+  hhfanyi_api:
+    image: node:8.10.0
+    restart: always
+    volumes:
+      - ~/hhfanyi/nicemall-api/:/app/
+    working_dir: /app/
+    environment:
+      DB_URL: 'mongodb://mongo/nicemall'
+    command: npm run start
+    expose:
+      - 7001
