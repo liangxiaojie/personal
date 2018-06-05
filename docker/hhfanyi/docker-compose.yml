@@ -11,6 +11,7 @@ services:
       - "443:443"
     links:
       - hhfanyi_mobile
+      - hhfanyi_admin
       - hhfanyi_api
 
   mongo:
@@ -32,6 +33,18 @@ services:
     command: "npm run build-start"
     expose:
       - 3000
+
+  hhfanyi_admin:
+      image: node:8.10.0
+      restart: always
+      volumes:
+        - ~/hhfanyi/nicemall-admin/:/app/
+      working_dir: /app/
+      environment:
+        API_URL: 'http://api.hhfanyi.com'
+      command: npm run serve
+      expose:
+        - 8080
 
   hhfanyi_api:
     image: node:8.10.0
