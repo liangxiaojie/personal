@@ -54,6 +54,9 @@ services:
     working_dir: /app/
     environment:
       DB_URL: 'mongodb://mongo/nicemall'
+      Domain: '.hhfanyi.com'
+      WWW_URL: 'http://www.hhfanyi.com'
+      API_URL: 'http://api.hhfanyi.com'
     command: npm run start
     expose:
       - 7001
