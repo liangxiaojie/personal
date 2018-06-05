@@ -41,7 +41,7 @@ services:
         - ~/hhfanyi/nicemall-admin/:/app/
       working_dir: /app/
       environment:
-        API_URL: 'http://api.hhfanyi.com'
+        VUE_APP_API_URL: 'http://api.hhfanyi.com'
       command: npm run serve
       expose:
         - 8080
