@@ -60,3 +60,5 @@ services:
     command: npm run start
     expose:
       - 7001
+    links:
+      - mongo
